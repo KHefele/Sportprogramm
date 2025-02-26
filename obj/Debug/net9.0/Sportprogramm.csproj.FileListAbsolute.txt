@@ -1,0 +1,4 @@
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\obj\Debug\net9.0\Sportprogramm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\obj\Debug\net9.0\Sportprogramm.AssemblyInfoInputs.cache
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\obj\Debug\net9.0\Sportprogramm.AssemblyInfo.cs
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\obj\Debug\net9.0\Sportprogramm.csproj.CoreCompileInputs.cache

@@ -1,0 +1,14 @@
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\obj\Debug\net9.0-windows\Sportprogramm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\obj\Debug\net9.0-windows\Sportprogramm.AssemblyInfoInputs.cache
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\obj\Debug\net9.0-windows\Sportprogramm.AssemblyInfo.cs
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\obj\Debug\net9.0-windows\Sportprogramm.csproj.CoreCompileInputs.cache
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\bin\Debug\net9.0-windows\Sportprogramm.exe
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\bin\Debug\net9.0-windows\Sportprogramm.deps.json
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\bin\Debug\net9.0-windows\Sportprogramm.runtimeconfig.json
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\bin\Debug\net9.0-windows\Sportprogramm.dll
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\bin\Debug\net9.0-windows\Sportprogramm.pdb
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\obj\Debug\net9.0-windows\Sportprogramm.dll
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\obj\Debug\net9.0-windows\refint\Sportprogramm.dll
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\obj\Debug\net9.0-windows\Sportprogramm.pdb
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\obj\Debug\net9.0-windows\Sportprogramm.genruntimeconfig.cache
+C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\obj\Debug\net9.0-windows\ref\Sportprogramm.dll
