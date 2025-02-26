@@ -48,8 +48,8 @@ class ExerciseApp : Form
     int currentSet = 0;
 
     int allUnitsIndex = 0;
-    
 
+    bool stopp = false;
 
 
     // constructor
@@ -83,11 +83,30 @@ class ExerciseApp : Form
         // close with ESC
         this.KeyDown += (s, e) => { if (e.KeyCode == Keys.Escape) this.Close(); }; 
 
+
+
         // timer
         timer = new System.Windows.Forms.Timer();
         timer.Interval = 1000; // 1s
         timer.Tick += Timer_Tick;
         timer.Start();
+
+        // stopp and start when key space is used
+        this.KeyDown += (s, e) => { 
+            if (e.KeyCode == Keys.Space) {
+
+                if (stopp == false) {
+                    timer.Stop();
+                    stopp = true;
+                } else if (stopp == true) {
+                    timer.Start();
+                    stopp = false;
+                }
+
+            }
+        }; 
+        
+
     }
 
 
