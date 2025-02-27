@@ -27,7 +27,7 @@ public class ExerciseScreen : Form
         this.allUnits = allUnits;
         this.Text = "ExerciseApp";
         this.WindowState = FormWindowState.Maximized; // maximise application
-        this.BackColor = Color.DarkSlateGray; // set color CHANGE IN TIMER
+        this.BackColor = Color.DarkGray; // set color CHANGE IN TIMER
         this.FormBorderStyle = FormBorderStyle.None; // remove border
 
         // name of exercise lable 
@@ -48,8 +48,6 @@ public class ExerciseScreen : Form
 
         // close with ESC
         this.KeyDown += (s, e) => { if (e.KeyCode == Keys.Escape) this.Close(); };
-
-
 
         // timer
         timer = new System.Windows.Forms.Timer();
@@ -81,7 +79,6 @@ public class ExerciseScreen : Form
         InitializeProgressBar();
         
 
-
     }
 
     // progress bar 
@@ -101,7 +98,8 @@ public class ExerciseScreen : Form
         progressBar.Value = 0; // Set the initial value of the ProgressBar.
         progressBar.Step = 1; // Set the Step property to a value of 1 to represent each file being copied.
         progressBar.Left = 0;
-        progressBar.BackColor = Color.LightYellow;
+        progressBar.BackColor = Color.DarkGray;
+        progressBar.ForeColor = Color.WhiteSmoke;
         progressBar.Style = ProgressBarStyle.Continuous;
         this.Controls.Add(progressBar);
 
@@ -169,9 +167,9 @@ public class ExerciseScreen : Form
 
         // recenter the text 
         exerciseName.Left = (ClientSize.Width - exerciseName.Width) / 2;
-        exerciseName.Top = (ClientSize.Height - exerciseName.Height) / 2;
+        exerciseName.Top = (ClientSize.Height - exerciseName.Height) / 2 - 50;
         secondsLeftLabel.Left = (ClientSize.Width - secondsLeftLabel.Width) / 2;
-        secondsLeftLabel.Top = (ClientSize.Height - secondsLeftLabel.Height) / 2 + 100;
+        secondsLeftLabel.Top = (ClientSize.Height - secondsLeftLabel.Height) / 2 + 50;
         progressBar.Width = ClientSize.Width;
         progressBar.Top = ClientSize.Height - progressBar.Height;
         progressLabel.Top = ClientSize.Height - progressBar.Height - progressLabel.Height;
