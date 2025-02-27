@@ -5,20 +5,18 @@ public class ExerciseScreen : Form
 {
     // fields
     private SportUnit[] allUnits;
-    private bool isPause = false;
     private System.Windows.Forms.Timer timer;
-
     private System.Media.SoundPlayer successSound = new System.Media.SoundPlayer(@"resources/success.wav");
 
     private Label exerciseName;
-
     private Label secondsLeftLabel;
+    private ProgressBar progressBar;
+    private Label progressLabel;
 
     int currentUnitInSeconds = 0;
     int currentSet = 0;
-
     int allUnitsIndex = 0;
-
+    private bool isPause = false;
     bool stopp = false;
 
 
@@ -58,6 +56,7 @@ public class ExerciseScreen : Form
         timer.Interval = 1000; // 1s
         timer.Tick += Timer_Tick;
         timer.Start();
+        
 
         // stopp and start when space bar is used
         this.KeyDown += (s, e) =>
@@ -79,34 +78,39 @@ public class ExerciseScreen : Form
             }
         };
 
+        InitializeProgressBar();
+        
+
 
     }
 
-    // // progress bar 
-    // private void CopyWithProgress(string[] filenames)
-    // {
-    //     // Display the ProgressBar control.
-    //     progressBar.Visible = true;
-    //     // Set Minimum to 1 to represent the first file being copied.
-    //     pBar1.Minimum = 1;
-    //     // Set Maximum to the total number of files to copy.
-    //     pBar1.Maximum = filenames.Length;
-    //     // Set the initial value of the ProgressBar.
-    //     pBar1.Value = 1;
-    //     // Set the Step property to a value of 1 to represent each file being copied.
-    //     pBar1.Step = 1;
+    // progress bar 
+    private void InitializeProgressBar()
+    {
+        // calculate duration of excercises
+        int durationAllUnits = 0;
+        foreach (SportUnit unit in allUnits){
+            durationAllUnits += (unit.durationInSeconds + unit.pauseBetweenSets) * unit.numberOfSets;
+        }
 
-    //     // Loop through all files to copy.
-    //     for (int x = 1; x <= filenames.Length; x++)
-    //     {
-    //         // Copy the file and increment the ProgressBar if successful.
-    //         if (CopyFile(filenames[x - 1]) == true)
-    //         {
-    //             // Perform the increment on the ProgressBar.
-    //             pBar1.PerformStep();
-    //         }
-    //     }
-    // }
+        // progress bar  
+        progressBar = new ProgressBar();
+        progressBar.Visible = true; // Display the ProgressBar control.
+        progressBar.Minimum = 0; // Set Minimum to 1 to represent the first file being copied.
+        progressBar.Maximum = durationAllUnits;  // Set Maximum to the total number of files to copy.
+        progressBar.Value = 0; // Set the initial value of the ProgressBar.
+        progressBar.Step = 1; // Set the Step property to a value of 1 to represent each file being copied.
+        progressBar.Left = 0;
+        progressBar.BackColor = Color.LightYellow;
+        progressBar.Style = ProgressBarStyle.Continuous;
+        this.Controls.Add(progressBar);
+
+        // progress bar label
+        progressLabel = new Label();
+        progressLabel.Font = new Font("Arial", 15, FontStyle.Italic);
+        progressLabel.ForeColor = Color.Gray;
+        this.Controls.Add(progressLabel);
+    }
 
 
     // timer_tick function is called every 1 second
@@ -114,6 +118,9 @@ public class ExerciseScreen : Form
     {
 
         int currentSecondsLeft;
+
+        progressBar.PerformStep();
+        progressLabel.Text = $"{Math.Round((double)progressBar.Value/progressBar.Maximum*100)}%";
 
         // change name of unit (to Exercise name or "Pause"), change duration of unit, change background color
         if (isPause != true)
@@ -136,20 +143,26 @@ public class ExerciseScreen : Form
         secondsLeftLabel.Text = currentSecondsLeft + "s left";
 
         // reset seconds to 0 if current unit ends (pause or excercise) & changes bool isPause
-        if (currentSecondsLeft == 0)
+        if (currentSecondsLeft == 1)
         {
             currentUnitInSeconds = 0;
-            if (isPause == false)
+            if (isPause == true)
             {
                 currentSet++;
-                successSound.Play();
 
                 // increase allUnitsIndex
                 if (currentSet == allUnits[allUnitsIndex].numberOfSets)
                 {
                     allUnitsIndex++;
                     currentSet = 0;
+
+                    if (allUnitsIndex >= allUnits.Length){
+                        timer.Stop();
+                        this.Close();
+                    }
                 }
+            } else {
+                successSound.Play();
             }
             isPause = !isPause;
         }
@@ -159,6 +172,10 @@ public class ExerciseScreen : Form
         exerciseName.Top = (ClientSize.Height - exerciseName.Height) / 2;
         secondsLeftLabel.Left = (ClientSize.Width - secondsLeftLabel.Width) / 2;
         secondsLeftLabel.Top = (ClientSize.Height - secondsLeftLabel.Height) / 2 + 100;
+        progressBar.Width = ClientSize.Width;
+        progressBar.Top = ClientSize.Height - progressBar.Height;
+        progressLabel.Top = ClientSize.Height - progressBar.Height - progressLabel.Height;
+        progressLabel.Width = ClientSize.Width;
     }
 
 
