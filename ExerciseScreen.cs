@@ -8,7 +8,7 @@ public class ExerciseScreen : Form
     private bool isPause = false;
     private System.Windows.Forms.Timer timer;
 
-    private System.Media.SoundPlayer successSound = new System.Media.SoundPlayer(@"C:\Users\katha\OneDrive\3_Dokumente\GitHub\Sportprogramm\resources\b2af-a026-445c-8d4c-eafabed3f76c.wav");
+    private System.Media.SoundPlayer successSound = new System.Media.SoundPlayer(@"resources/success.wav");
 
     private Label exerciseName;
 
