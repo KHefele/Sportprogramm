@@ -82,7 +82,7 @@ public class ExerciseScreen : Form
 
     }
 
-    // progress bar 
+    // // progress bar 
     // private void CopyWithProgress(string[] filenames)
     // {
     //     // Display the ProgressBar control.
