@@ -16,6 +16,10 @@ You can define your workout exercises in the `Program.cs` file by modifying the 
 SportUnit squats = new SportUnit("Squats", 60, 4, 30);
 ```
 
+## 🏃‍♂️ How to Run
+- Open the project in Visual Studio or VS Code (Build and run the application (Ctrl + F5) > The fullscreen training session will begin.)
+- Open the project in the command line e.g. `cd path/to/projectFolder` and `dotnet run`
+
 ## 🔑 Controls
 Space bar – Start and stop workout.
 ESC Key – Exit application.
